@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="serviceyourcarModelStoreContainer" CdmEntityContainer="serviceyourcarEntities">
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="serviceyourcarModel.Booking">
+        <MappingFragment StoreEntitySet="Booking">
+          <ScalarProperty Name="S_id" ColumnName="S_id" />
+          <ScalarProperty Name="B_id" ColumnName="B_id" />
+          <ScalarProperty Name="St_id" ColumnName="St_id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="E_Time" ColumnName="E_Time" />
+          <ScalarProperty Name="S_Time" ColumnName="S_Time" />
+          <ScalarProperty Name="complete" ColumnName="complete" />
+          <ScalarProperty Name="B_type" ColumnName="B_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BookingServices">
+      <EntityTypeMapping TypeName="serviceyourcarModel.BookingService">
+        <MappingFragment StoreEntitySet="BookingServices">
+          <ScalarProperty Name="BS_id" ColumnName="BS_id" />
+          <ScalarProperty Name="B_id" ColumnName="B_id" />
+          <ScalarProperty Name="Sr_id" ColumnName="Sr_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reminders">
+      <EntityTypeMapping TypeName="serviceyourcarModel.Reminder">
+        <MappingFragment StoreEntitySet="Reminder">
+          <ScalarProperty Name="Rem_id" ColumnName="Rem_id" />
+          <ScalarProperty Name="B_id" ColumnName="B_id" />
+          <ScalarProperty Name="Rem_date" ColumnName="Rem_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="serviceyourcarModel.Service">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="Sr_id" ColumnName="Sr_id" />
+          <ScalarProperty Name="N_price" ColumnName="N_price" />
+          <ScalarProperty Name="S_name" ColumnName="S_name" />
+          <ScalarProperty Name="St_id" ColumnName="St_id" />
+          <ScalarProperty Name="S_time" ColumnName="S_time" />
+          <ScalarProperty Name="V_price" ColumnName="V_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Slots">
+      <EntityTypeMapping TypeName="serviceyourcarModel.Slot">
+        <MappingFragment StoreEntitySet="Slot">
+          <ScalarProperty Name="Slot_id" ColumnName="Slot_id" />
+          <ScalarProperty Name="day" ColumnName="day" />
+          <ScalarProperty Name="Open_time" ColumnName="Open_time" />
+          <ScalarProperty Name="Closed_time" ColumnName="Closed_time" />
+          <ScalarProperty Name="St_id" ColumnName="St_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stations">
+      <EntityTypeMapping TypeName="serviceyourcarModel.Station">
+        <MappingFragment StoreEntitySet="Stations">
+          <ScalarProperty Name="St_id" ColumnName="St_id" />
+          <ScalarProperty Name="St_name" ColumnName="St_name" />
+          <ScalarProperty Name="S_id" ColumnName="S_id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="lng" ColumnName="lng" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="serviceyourcarModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="S_id" ColumnName="S_id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="User_name" ColumnName="User_name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Mobile_Number" ColumnName="Mobile_Number" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="IsUser" ColumnName="IsUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

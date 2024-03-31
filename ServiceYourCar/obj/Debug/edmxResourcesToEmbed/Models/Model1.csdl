@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="serviceyourcarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="B_id" />
+    </Key>
+    <Property Name="B_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="St_id" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="E_Time" Type="DateTime" Precision="3" />
+    <Property Name="S_Time" Type="DateTime" Precision="3" />
+    <Property Name="complete" Type="Boolean" />
+    <Property Name="B_type" Type="Boolean" />
+    <Property Name="S_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BookingService">
+    <Key>
+      <PropertyRef Name="BS_id" />
+    </Key>
+    <Property Name="BS_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="B_id" Type="Int32" />
+    <Property Name="Sr_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Reminder">
+    <Key>
+      <PropertyRef Name="Rem_id" />
+    </Key>
+    <Property Name="Rem_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="B_id" Type="Int32" />
+    <Property Name="Rem_date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="Sr_id" />
+    </Key>
+    <Property Name="Sr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="N_price" Type="Int32" />
+    <Property Name="S_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="St_id" Type="Int32" />
+    <Property Name="S_time" Type="Int32" />
+    <Property Name="V_price" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Slot">
+    <Key>
+      <PropertyRef Name="Slot_id" />
+    </Key>
+    <Property Name="Slot_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="day" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Open_time" Type="DateTime" Precision="3" />
+    <Property Name="Closed_time" Type="DateTime" Precision="3" />
+    <Property Name="St_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Station">
+    <Key>
+      <PropertyRef Name="St_id" />
+    </Key>
+    <Property Name="St_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="St_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="S_id" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="lat" Type="Double" />
+    <Property Name="lng" Type="Double" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="S_id" />
+    </Key>
+    <Property Name="S_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsUser" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="serviceyourcarEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bookings" EntityType="Self.Booking" />
+    <EntitySet Name="BookingServices" EntityType="Self.BookingService" />
+    <EntitySet Name="Reminders" EntityType="Self.Reminder" />
+    <EntitySet Name="Services" EntityType="Self.Service" />
+    <EntitySet Name="Slots" EntityType="Self.Slot" />
+    <EntitySet Name="Stations" EntityType="Self.Station" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+  </EntityContainer>
+</Schema>

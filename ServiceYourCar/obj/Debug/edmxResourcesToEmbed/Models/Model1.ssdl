@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="serviceyourcarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="B_id" />
+    </Key>
+    <Property Name="B_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="S_id" Type="int" />
+    <Property Name="St_id" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="E_Time" Type="datetime" />
+    <Property Name="S_Time" Type="datetime" />
+    <Property Name="complete" Type="bit" />
+    <Property Name="B_type" Type="bit" />
+  </EntityType>
+  <EntityType Name="BookingServices">
+    <Key>
+      <PropertyRef Name="BS_id" />
+    </Key>
+    <Property Name="BS_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="B_id" Type="int" />
+    <Property Name="Sr_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Reminder">
+    <Key>
+      <PropertyRef Name="Rem_id" />
+    </Key>
+    <Property Name="Rem_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="B_id" Type="int" />
+    <Property Name="Rem_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="Sr_id" />
+    </Key>
+    <Property Name="Sr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="N_price" Type="int" />
+    <Property Name="S_name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="St_id" Type="int" />
+    <Property Name="S_time" Type="int" />
+    <Property Name="V_price" Type="int" />
+  </EntityType>
+  <EntityType Name="Slot">
+    <Key>
+      <PropertyRef Name="Slot_id" />
+    </Key>
+    <Property Name="Slot_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="day" Type="varchar" MaxLength="50" />
+    <Property Name="Open_time" Type="datetime" />
+    <Property Name="Closed_time" Type="datetime" />
+    <Property Name="St_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Stations">
+    <Key>
+      <PropertyRef Name="St_id" />
+    </Key>
+    <Property Name="St_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="St_name" Type="varchar" MaxLength="30" />
+    <Property Name="S_id" Type="int" />
+    <Property Name="Address" Type="text" />
+    <Property Name="lat" Type="float" />
+    <Property Name="lng" Type="float" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="S_id" />
+    </Key>
+    <Property Name="S_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="User_name" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="30" />
+    <Property Name="Mobile_Number" Type="varchar" MaxLength="20" />
+    <Property Name="Address" Type="text" />
+    <Property Name="IsUser" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="serviceyourcarModelStoreContainer">
+    <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BookingServices" EntityType="Self.BookingServices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reminder" EntityType="Self.Reminder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slot" EntityType="Self.Slot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stations" EntityType="Self.Stations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

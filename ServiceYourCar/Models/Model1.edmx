@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="serviceyourcarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="B_id" />
+          </Key>
+          <Property Name="B_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="S_id" Type="int" />
+          <Property Name="St_id" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="E_Time" Type="datetime" />
+          <Property Name="S_Time" Type="datetime" />
+          <Property Name="complete" Type="bit" />
+          <Property Name="B_type" Type="bit" />
+        </EntityType>
+        <EntityType Name="BookingServices">
+          <Key>
+            <PropertyRef Name="BS_id" />
+          </Key>
+          <Property Name="BS_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="B_id" Type="int" />
+          <Property Name="Sr_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Reminder">
+          <Key>
+            <PropertyRef Name="Rem_id" />
+          </Key>
+          <Property Name="Rem_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="B_id" Type="int" />
+          <Property Name="Rem_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="Sr_id" />
+          </Key>
+          <Property Name="Sr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="N_price" Type="int" />
+          <Property Name="S_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="St_id" Type="int" />
+          <Property Name="S_time" Type="int" />
+          <Property Name="V_price" Type="int" />
+        </EntityType>
+        <EntityType Name="Slot">
+          <Key>
+            <PropertyRef Name="Slot_id" />
+          </Key>
+          <Property Name="Slot_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="day" Type="varchar" MaxLength="50" />
+          <Property Name="Open_time" Type="datetime" />
+          <Property Name="Closed_time" Type="datetime" />
+          <Property Name="St_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Stations">
+          <Key>
+            <PropertyRef Name="St_id" />
+          </Key>
+          <Property Name="St_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="St_name" Type="varchar" MaxLength="30" />
+          <Property Name="S_id" Type="int" />
+          <Property Name="Address" Type="text" />
+          <Property Name="lat" Type="float" />
+          <Property Name="lng" Type="float" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="S_id" />
+          </Key>
+          <Property Name="S_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="User_name" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="30" />
+          <Property Name="Mobile_Number" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="text" />
+          <Property Name="IsUser" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="serviceyourcarModelStoreContainer">
+          <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookingServices" EntityType="Self.BookingServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reminder" EntityType="Self.Reminder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Slot" EntityType="Self.Slot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stations" EntityType="Self.Stations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="serviceyourcarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="B_id" />
+          </Key>
+          <Property Name="B_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="St_id" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="E_Time" Type="DateTime" Precision="3" />
+          <Property Name="S_Time" Type="DateTime" Precision="3" />
+          <Property Name="complete" Type="Boolean" />
+          <Property Name="B_type" Type="Boolean" />
+          <Property Name="S_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BookingService">
+          <Key>
+            <PropertyRef Name="BS_id" />
+          </Key>
+          <Property Name="BS_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="B_id" Type="Int32" />
+          <Property Name="Sr_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Reminder">
+          <Key>
+            <PropertyRef Name="Rem_id" />
+          </Key>
+          <Property Name="Rem_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="B_id" Type="Int32" />
+          <Property Name="Rem_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="Sr_id" />
+          </Key>
+          <Property Name="Sr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="N_price" Type="Int32" />
+          <Property Name="S_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="St_id" Type="Int32" />
+          <Property Name="S_time" Type="Int32" />
+          <Property Name="V_price" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Slot">
+          <Key>
+            <PropertyRef Name="Slot_id" />
+          </Key>
+          <Property Name="Slot_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="day" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Open_time" Type="DateTime" Precision="3" />
+          <Property Name="Closed_time" Type="DateTime" Precision="3" />
+          <Property Name="St_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Station">
+          <Key>
+            <PropertyRef Name="St_id" />
+          </Key>
+          <Property Name="St_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="St_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="S_id" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="lat" Type="Double" />
+          <Property Name="lng" Type="Double" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="S_id" />
+          </Key>
+          <Property Name="S_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsUser" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="serviceyourcarEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bookings" EntityType="Self.Booking" />
+          <EntitySet Name="BookingServices" EntityType="Self.BookingService" />
+          <EntitySet Name="Reminders" EntityType="Self.Reminder" />
+          <EntitySet Name="Services" EntityType="Self.Service" />
+          <EntitySet Name="Slots" EntityType="Self.Slot" />
+          <EntitySet Name="Stations" EntityType="Self.Station" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="serviceyourcarModelStoreContainer" CdmEntityContainer="serviceyourcarEntities">
+          <EntitySetMapping Name="Bookings">
+            <EntityTypeMapping TypeName="serviceyourcarModel.Booking">
+              <MappingFragment StoreEntitySet="Booking">
+                <ScalarProperty Name="S_id" ColumnName="S_id" />
+                <ScalarProperty Name="B_id" ColumnName="B_id" />
+                <ScalarProperty Name="St_id" ColumnName="St_id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="E_Time" ColumnName="E_Time" />
+                <ScalarProperty Name="S_Time" ColumnName="S_Time" />
+                <ScalarProperty Name="complete" ColumnName="complete" />
+                <ScalarProperty Name="B_type" ColumnName="B_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookingServices">
+            <EntityTypeMapping TypeName="serviceyourcarModel.BookingService">
+              <MappingFragment StoreEntitySet="BookingServices">
+                <ScalarProperty Name="BS_id" ColumnName="BS_id" />
+                <ScalarProperty Name="B_id" ColumnName="B_id" />
+                <ScalarProperty Name="Sr_id" ColumnName="Sr_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reminders">
+            <EntityTypeMapping TypeName="serviceyourcarModel.Reminder">
+              <MappingFragment StoreEntitySet="Reminder">
+                <ScalarProperty Name="Rem_id" ColumnName="Rem_id" />
+                <ScalarProperty Name="B_id" ColumnName="B_id" />
+                <ScalarProperty Name="Rem_date" ColumnName="Rem_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="serviceyourcarModel.Service">
+              <MappingFragment StoreEntitySet="Services">
+                <ScalarProperty Name="Sr_id" ColumnName="Sr_id" />
+                <ScalarProperty Name="N_price" ColumnName="N_price" />
+                <ScalarProperty Name="S_name" ColumnName="S_name" />
+                <ScalarProperty Name="St_id" ColumnName="St_id" />
+                <ScalarProperty Name="S_time" ColumnName="S_time" />
+                <ScalarProperty Name="V_price" ColumnName="V_price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Slots">
+            <EntityTypeMapping TypeName="serviceyourcarModel.Slot">
+              <MappingFragment StoreEntitySet="Slot">
+                <ScalarProperty Name="Slot_id" ColumnName="Slot_id" />
+                <ScalarProperty Name="day" ColumnName="day" />
+                <ScalarProperty Name="Open_time" ColumnName="Open_time" />
+                <ScalarProperty Name="Closed_time" ColumnName="Closed_time" />
+                <ScalarProperty Name="St_id" ColumnName="St_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stations">
+            <EntityTypeMapping TypeName="serviceyourcarModel.Station">
+              <MappingFragment StoreEntitySet="Stations">
+                <ScalarProperty Name="St_id" ColumnName="St_id" />
+                <ScalarProperty Name="St_name" ColumnName="St_name" />
+                <ScalarProperty Name="S_id" ColumnName="S_id" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="lng" ColumnName="lng" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="serviceyourcarModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="S_id" ColumnName="S_id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="User_name" ColumnName="User_name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Mobile_Number" ColumnName="Mobile_Number" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="IsUser" ColumnName="IsUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
