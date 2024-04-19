@@ -16,7 +16,7 @@
     <AssemblyName>ServiceYourCar</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44354</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
@@ -385,7 +385,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53614</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44354/</IISUrl>
+          <IISUrl>http://localhost/myapi</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

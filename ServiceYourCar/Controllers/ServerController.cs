@@ -2,6 +2,7 @@
 using ServiceYourCar.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -18,6 +19,39 @@ namespace ServiceYourCar.Controllers
     public class ServerController : ApiController
     {
         private readonly serviceyourcarEntities db = new serviceyourcarEntities();
+        [HttpPOST]
+        public HttpResponseMessage SignUp1(String n,String e,String p,String a,String m)
+        {
+            try
+            {
+               
+
+                User newuser = new User
+                {
+                    Email = e,
+                    User_name = n,
+                    Password = p,
+                    Address =a,
+                    Mobile_Number=m , 
+                    
+                };
+
+
+                db.Users.Add(newuser);
+                db.SaveChanges();
+                if (newuser.IsUser == false)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, newuser);
+                }
+                return Request.CreateResponse(HttpStatusCode.OK, "Created");
+            }
+            catch (Exception ex)
+            {
+
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+
+        }
 
         [HttpPost]
         public HttpResponseMessage SignUp()
@@ -441,6 +475,14 @@ namespace ServiceYourCar.Controllers
                     }
         }
 
+    }
+
+    internal class HttpPOSTAttribute : Attribute
+    {
+    }
+
+    internal class HttpGETAttribute : Attribute
+    {
     }
 }
 
